@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Tebak Angka - Razn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Game Tebak Angka</h1>
+    <p>Tebak angka antara 1 sampai 10</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">Tentang</a>
+      <a href="contact.html">Kontak</a>
+      <a href="game.html">Game</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Mulai Game</h2>
+      <p id="pesan">Masukkan angka 1 - 10</p>
+      <input type="number" id="tebakan" min="1" max="10">
+      <br><br>
+      <button onclick="cekAngka()">Tebak!</button>
+      <button onclick="ulangGame()">Ulangi Game</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Razn</p>
+  </footer>
+
+  <script>
+    let angkaRahasia = Math.floor(Math.random() * 10) + 1;
+
+    function cekAngka() {
+      let tebakan = document.getElementById("tebakan").value;
+      let pesan = document.getElementById("pesan");
+
+      if (tebakan == angkaRahasia) {
+        pesan.innerHTML = "🎉 Benar! Angkanya " + angkaRahasia;
+      } else {
+        pesan.innerHTML = "❌ Salah! Coba lagi.";
+      }
+    }
+
+    function ulangGame() {
+      angkaRahasia = Math.floor(Math.random() * 10) + 1;
+      document.getElementById("pesan").innerHTML = "Game diulang! Masukkan angka 1 - 10";
+      document.getElementById("tebakan").value = "";
+    }
+  </script>
+
+</body>
+</html>
